@@ -38,7 +38,7 @@ pipeline {
             steps {
                 
                     script {
-                        docker.build("121837913390.dkr.ecr.us-east-1.amazonaws.com:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
+                        sudo docker.build("121837913390.dkr.ecr.us-east-1.amazonaws.com:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
                     }
                 }
             }
