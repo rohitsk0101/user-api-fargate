@@ -10,11 +10,7 @@ pipeline {
         timestamps()
     }
 
-    tools {
-    
-        dockerTool 'docker-latest'
-    }
-
+   
     environment {
         POM_VERSION = getVersion()
         JAR_NAME = getJarName()
