@@ -23,6 +23,7 @@ pipeline {
         AWS_ECS_MEMORY = '512'
         AWS_ECS_CLUSTER = 'ch-dev'
         AWS_ECS_TASK_DEFINITION_PATH = './ecs/container-definition-update-image.json'
+        AWS_ECR_URL =
     }
 
     stages {
@@ -38,7 +39,7 @@ pipeline {
             steps {
                 
                     script {
-                        sudo docker.build("121837913390.dkr.ecr.us-east-1.amazonaws.com:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
+                        sudo docker.build("${AWS_ECR_URL}:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
                     }
                 }
             }
@@ -49,7 +50,7 @@ pipeline {
             
                         script {
                              sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 121837913390.dkr.ecr.us-east-1.amazonaws.com"
-                            docker.image("${AWS_ECR_URL}:${POM_VERSION}").push()
+                            docker.image("${AWS_ECR_URL}/jnk:${POM_VERSION}").push()
                         }
                     }
                 }
