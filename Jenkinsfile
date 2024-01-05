@@ -23,7 +23,7 @@ pipeline {
         AWS_ECS_MEMORY = '512'
         AWS_ECS_CLUSTER = 'ch-dev'
         AWS_ECS_TASK_DEFINITION_PATH = './ecs/container-definition-update-image.json'
-        AWS_ECR_URL =
+        AWS_ECR_URL = '121837913390.dkr.ecr.us-east-1.amazonaws.com'
     }
 
     stages {
