@@ -36,13 +36,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                withCredentials([string(credentialsId: '121837913390.dkr.ecr.us-east-1.amazonaws.com', variable: 'AWS_ECR_URL')]) {
+                
                     script {
-                        docker.build("${AWS_ECR_URL}:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
+                        docker.build("121837913390.dkr.ecr.us-east-1.amazonaws.com:${POM_VERSION}", "--build-arg JAR_FILE=${JAR_NAME} .")
                     }
                 }
             }
-        }
+        
 
         stage('Push image to ECR') {
             steps {
