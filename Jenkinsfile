@@ -54,7 +54,7 @@ pipeline {
                     }
                 }
             }
-        }
+        
 
         stage('Deploy in ECS') {
             steps {
@@ -68,7 +68,7 @@ pipeline {
                 }
             }
         }
-    }
+
 
     post {
         always {
