@@ -10,7 +10,7 @@ pipeline {
         timestamps()
     }
 
-   
+   #test commit
     environment {
         POM_VERSION = getVersion()
         JAR_NAME = getJarName()
